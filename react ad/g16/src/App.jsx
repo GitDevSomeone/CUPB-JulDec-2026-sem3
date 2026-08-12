@@ -1,48 +1,43 @@
-import React from "react";
+// import React from "react";
+// import Card from "./components/Card";
 
-let student = [
-  {
-    name: "Himanshu",
-    group: "g16",
-    marks: 20,
-  },
-  {
-    name: "Gautam",
-    group: "g16",
-    marks: 18,
-  },
-  {
-    name: "Suryansh",
-    group: "g16",
-    marks: 12,
-  },
+// let students = [
+//   {
+//     name: "Himanshu",
+//     group: "g16",
+//     marks: 20,
+//   },
+//   {
+//     name: "Gautam",
+//     group: "g16",
+//     marks: 18,
+//   },
+//   {
+//     name: "Suryansh",
+//     group: "g16",
+//     marks: 12,
+//   },
+//   {
+//     name: "Suryansh",
+//     group: "g16",
+//     marks: 12,
+//   },
    
-];
+// ];
 
 // function App() {
 //   return (
 //     <>
-//       {student.map(function (value, index) {
+//       {students.map(function (value, index) {
 //         return (
-//            <div
-//             style={{
-//               height: "200px",
-//               width: "150px",
-//               border: value.marks > 15 ? "1px solid black" : "1px solid red",
-//               backgroundColor: value.marks > 15 ? "green" : "red",
-//               display: value.marks > 15 ? "block" : "none"
-//             }}
-//           >
-//             <p>name: {value.name}</p>
-//             <p>group: {value.group}</p>
-//             <p>marks: {value.marks  }</p>
-//             <p>Status: {value.marks > 15 ? "Pass" : "Fail"}</p>
-//           </div>
+//            <Card student={value}/>
 //         );
 //       })}
 //     </>
 //   );
 // }
+
+// export default App
 
 
 // function App() {
@@ -77,15 +72,81 @@ let student = [
 //   );
 // }
 
-import Child from "./components/Child";
+// import Child from "./components/Child";
 
-let username = "chitkara"
+// let username = "chitkara"
 
-function App(){
-  return <>
-    <Child un={username} cl="red"/>
-    <Child un="Pranay" cl="blue"/>
-  </>
+// function App(){
+//   return <>
+//     <Child un={username} cl="red"/>
+//     <Child un="Pranay" cl="blue"/>
+//   </>
+// }
+
+// export default App;
+
+
+// import React from 'react'
+// import G16 from "./components/G16"
+
+// let username = "Himanshu"
+
+// function App() {
+//   return (
+//     <div>
+//       <G16 
+//       user="Sukhreet"  
+//       age={1234} 
+//       arr={[1,2,3,4]}
+//       bool={true}
+//       obj={{
+//         name: "Himanshu"
+//       }}
+//       func={function(){
+//         return "Hello"
+//       }}
+//       />
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+import React from "react";
+import Cards from "./components/Cards";
+
+let students = [
+  {
+    name: "Himanshu",
+    group: "g16",
+    marks: 20,
+  },
+  {
+    name: "Gautam",
+    group: "g16",
+    marks: 18,
+  },
+  {
+    name: "Suryansh",
+    group: "g16",
+    marks: 12,
+  },
+  {
+    name: "Suryansh",
+    group: "g16",
+    marks: 12,
+  },
+   
+];
+
+function App() {
+  return (
+    <>
+      <Cards />
+    </>
+  );
 }
 
-export default App;
+export default App
