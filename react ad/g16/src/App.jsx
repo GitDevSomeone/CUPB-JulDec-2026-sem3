@@ -144,7 +144,7 @@ let students = [
 function App() {
   return (
     <>
-      <Cards />
+      <Cards arr={students} />
     </>
   );
 }
