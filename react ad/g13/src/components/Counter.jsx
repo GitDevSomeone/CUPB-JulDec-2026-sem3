@@ -6,6 +6,7 @@ function Counter() {
     let [count, setCount] = useState(0)
     let [string, setString] = useState("")
     let [bool, setBool] = useState(false)
+    let [student, setStudent] = useState([1,2,3,4])
 
     function clickHandler(){
         // setCount(count + 1)
@@ -45,6 +46,13 @@ function Counter() {
 
       <p>{bool == true ? "true" : "false"}</p>
       <button onClick={boolHandler}>change boolean value</button>
+
+      <ul>
+        {student.map((value, index)=>{
+          return <li key={index}>{value}</li>
+        })}
+      </ul>
+      <button onClick={pushHandler}>element push</button>
 
     </div>
   )

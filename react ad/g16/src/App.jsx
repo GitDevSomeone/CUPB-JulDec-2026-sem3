@@ -114,39 +114,102 @@
 // export default App
 
 
-import React from "react";
-import Cards from "./components/Cards";
+// import React from "react";
+// import Cards from "./components/Cards";
 
-let students = [
-  {
-    name: "Himanshu",
-    group: "g16",
-    marks: 20,
-  },
-  {
-    name: "Gautam",
-    group: "g16",
-    marks: 18,
-  },
-  {
-    name: "Suryansh",
-    group: "g16",
-    marks: 12,
-  },
-  {
-    name: "Suryansh",
-    group: "g16",
-    marks: 12,
-  },
+// let students = [
+//   {
+//     name: "Himanshu",
+//     group: "g16",
+//     marks: 20,
+//   },
+//   {
+//     name: "Gautam",
+//     group: "g16",
+//     marks: 18,
+//   },
+//   {
+//     name: "Suryansh",
+//     group: "g16",
+//     marks: 12,
+//   },
+//   {
+//     name: "Suryansh",
+//     group: "g16",
+//     marks: 12,
+//   },
    
-];
+// ];
+
+// function App() {
+//   return (
+//     <>
+//       <Cards arr={students} />
+//     </>
+//   );
+// }
+
+// export default App
+
+
+import React, {useState} from 'react'
+// import {useState} from 'react'
 
 function App() {
+  // let count = 0
+  let [count, setCount] = useState(0)
+  const [string, setString] = useState("")
+  const [bool, setBool] = useState(true)
+
+  function increaseCount(){
+    // count ++
+    // console.log(count)
+    // setCount(prev + 1)
+    // setCount(prev + 1)
+    // setCount(prev + 1)
+
+    // setCount(function(prev){
+    //   return prev + 1
+    // })
+    setCount((prev) => prev + 1)
+   
+
+  }
+
+  function decreaseCount(){
+    setCount(count - 1) 
+  }
+
+  function inputHandler(event){
+    console.log(event.target.value)
+   setString((prev) => event.target.value)
+  }
+
+  function boolHandler(){
+    // setBool(()=> bool == true ? false : true)
+    setBool((prev)=> !prev )
+
+  }
   return (
-    <>
-      <Cards arr={students} />
-    </>
-  );
+    <div>
+      <button onClick={decreaseCount}>-</button>
+      <p>{count}</p>
+      {/* <button onclick="increaseCount()">+</button> */}
+      <button onClick={increaseCount}>+</button>
+
+      <input type='text' onChange={inputHandler}/>
+      <p>{string}</p>
+
+      <p style={{
+        color: bool == true ? "red" : "green"
+      }}
+      >hello g16</p>
+      <button onClick={boolHandler}>change boolean value</button>
+
+
+    </div>
+  )
 }
 
 export default App
+

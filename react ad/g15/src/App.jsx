@@ -56,32 +56,68 @@
 // export default App;
 
 
-import React from 'react'
-import G15 from './components/G15'
+// import React from 'react'
+// import G15 from './components/G15'
 
-let loggedInUser = "Himanshu"
+// let loggedInUser = "Himanshu"
+
+// function App() {
+//   return (
+//     <div>
+//       <G15 
+//       uname={loggedInUser}
+//       age={1234}
+//       str="hello world"
+//       bool={true}
+//       func={
+//         function(){
+//           return "Hello Himanshu"
+//         }
+//       }
+//       arr={[1,2,3,4]}
+//       obj={{
+//         course: "Bee"
+//       }}
+//       />
+//     </div>
+//   )
+// }
+
+// export default App
+
+import React from "react";
+import Cards from "./components/Cards";
+
+let student = [
+  {
+    name: "Himanshu",
+    group: "g15",
+    marks: 20,
+  },
+  {
+    name: "Saksham",
+    group: "g15",
+    marks: 13,
+  },
+  {
+    name: "Pratham",
+    group: "g15",
+    marks: 15,
+  },
+  {
+    name: "Siya",
+    group: "g15",
+    marks: 10,
+  },
+];
+
 
 function App() {
   return (
-    <div>
-      <G15 
-      uname={loggedInUser}
-      age={1234}
-      str="hello world"
-      bool={true}
-      func={
-        function(){
-          return "Hello Himanshu"
-        }
-      }
-      arr={[1,2,3,4]}
-      obj={{
-        course: "Bee"
-      }}
-      />
-    </div>
-  )
+    <>
+     <Cards stud={student}/>
+    </>
+  );
 }
 
-export default App
-
+export default App;
