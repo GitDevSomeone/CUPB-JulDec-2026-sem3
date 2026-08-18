@@ -145,14 +145,53 @@
 
 // export default App
 
+// for state variable
+// import React from 'react'
+// import Counter from './components/Counter'
+
+// function App() {
+//   return (
+//     <div>
+//       <Counter />
+//     </div>
+//   )
+// }
+
+// for routing
+// create required components
+// install a new package called react-router-dom
+      // terminal - npm install react-router-dom
+// main.jsx -> import a function(component) named BrowserRouter
+// use this component BrowserRouter by wrapping my app inside it
+
+
+// create a nvigation bar and nav links
+// import Link Component
 
 import React from 'react'
-import Counter from './components/Counter'
+import {Link, Routes, Route} from 'react-router-dom'
+import Home from "./components/Home"
+import Profile from "./components/Profile"
+import Explore from "./components/Explore"
 
 function App() {
   return (
     <div>
-      <Counter />
+      <nav style={{
+        display: "flex",
+        gap: "20px",
+        border: "1px solid black"
+      }}>
+        <Link to="/home">Home</Link>
+        <Link to="/explore">Explore</Link>
+        <Link to="/profile">Profile</Link>
+      </nav>
+
+      <Routes>
+        <Route path='/home' element={<Home />} />
+        <Route path='/profile' element={<Profile />}/>
+        <Route path='/explore' element={<Explore />}/>
+      </Routes>
     </div>
   )
 }

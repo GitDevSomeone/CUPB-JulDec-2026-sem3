@@ -7,6 +7,10 @@ function Counter() {
     let [string, setString] = useState("")
     let [bool, setBool] = useState(false)
     let [student, setStudent] = useState([1,2,3,4])
+    let [obj, setObj] = useState({
+      name: "asdfasd",
+      age: 12
+    })
 
     function clickHandler(){
         // setCount(count + 1)
@@ -34,6 +38,29 @@ function Counter() {
       // })
     }
 
+    function pushHandler(){
+      // setStudent(function(prev){
+      //   let newArr = [...prev]
+      //   newArr.push(5)
+      //   return newArr
+      // })
+
+      setStudent(function(prev){
+        let newArr = [...prev]
+        return newArr.pop()
+        // return newArr
+      })
+    }
+
+    function ageIncrease(){
+      setObj(function(prev){
+        let newObj = {...prev}
+        // newObj.name = prev.name +  " sharma"
+        newObj.address = "Chitkara university"
+        return newObj
+      })
+    }
+
   return (
     <div>
       {/* <button onclick="clickHandler()">click</button>  HTML way */}
@@ -53,6 +80,12 @@ function Counter() {
         })}
       </ul>
       <button onClick={pushHandler}>element push</button>
+
+      <p>name: {obj.name}</p>
+      <p>age: {obj.age}</p>
+      <p>address: {obj.address}</p>
+
+      <button onClick={ageIncrease}>Age increase</button>
 
     </div>
   )
