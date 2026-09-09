@@ -174,33 +174,54 @@
  * import Routes and Route 2 inbuild component from react-router-dom
  */
 
-import React from 'react'
-import {Routes, Route, Link} from 'react-router-dom'
+// import React from 'react'
+// import {Routes, Route, Link} from 'react-router-dom'
 
-import Home from './components/Home'
-import Explore from './components/Explore'
-import Profile from './components/Profile'
+// import Home from './components/Home'
+// import Explore from './components/Explore'
+// import Profile from './components/Profile'
+
+// function App() {
+//   return (
+//     <div>
+
+//         <nav>
+//             <Link to="/home">Home</Link> |
+//             <Link to="/explore">Explore</Link> |
+//             <Link to="/profile">Profile</Link>
+//         </nav>
+      
+//       <Routes>
+//         <Route path='/home' element={<Home />}/>
+//         <Route path='/explore' element={<Explore />}/>
+//         <Route path='/profile' element={<Profile />}/>
+//       </Routes>
+//     </div>
+//   )
+// }
+
+// export default App
+
+import React, {useState} from 'react'
 
 function App() {
+  const [count, setCount] = useState(0)
+  function increaseHandler(){
+    setCount(()=>{
+      return count + 1
+    })
+  }
+  console.log("re-rendering")
   return (
     <div>
-
-        <nav>
-            <Link to="/home">Home</Link> |
-            <Link to="/explore">Explore</Link> |
-            <Link to="/profile">Profile</Link>
-        </nav>
-      
-      <Routes>
-        <Route path='/home' element={<Home />}/>
-        <Route path='/explore' element={<Explore />}/>
-        <Route path='/profile' element={<Profile />}/>
-      </Routes>
+      <h1>{count}</h1>
+      <button onClick={increaseHandler}>+</button>
     </div>
   )
 }
 
 export default App
+
 
 
 

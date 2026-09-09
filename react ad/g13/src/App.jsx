@@ -168,32 +168,112 @@
 // create a nvigation bar and nav links
 // import Link Component
 
-import React from 'react'
-import {Link, Routes, Route} from 'react-router-dom'
-import Home from "./components/Home"
-import Profile from "./components/Profile"
-import Explore from "./components/Explore"
+// import React from 'react'
+// import {Link, Routes, Route} from 'react-router-dom'
+// import Home from "./components/Home"
+// import Profile from "./components/Profile"
+// import Explore from "./components/Explore"
+
+// function App() {
+//   return (
+//     <div>
+//       <nav style={{
+//         display: "flex",
+//         gap: "20px",
+//         border: "1px solid black"
+//       }}>
+//         <Link to="/home">Home</Link>
+//         <Link to="/explore">Explore</Link>
+//         <Link to="/profile">Profile</Link>
+//       </nav>
+
+//       <Routes>
+//         <Route path='/home' element={<Home />} />
+//         <Route path='/profile' element={<Profile />}/>
+//         <Route path='/explore' element={<Explore />}/>
+//       </Routes>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React, {useState, useEffect, useRef} from 'react'
+
+// function App() {
+//   // let count2 = 0
+//   const count2 = useRef(0)
+//   const [count, setCount] = useState(0)
+//   const [count1, setCount1] = useState(10)
+  // function increaseHandler(){
+  //   count2.current ++ 
+  //   console.log(count2.current)
+  // }
+//   console.log("count----",count)
+//   console.log("count2----",count2)
+
+//   function decreaseHandler(){
+//     setCount(()=>{
+//       return count - 1
+//     })
+
+//   }
+
+//   function increase(){
+//     setCount1(()=>{
+//       return count1 + 10
+//     })
+//   }
+
+
+//   return (
+//     <div>
+//       <button onClick={decreaseHandler}>-</button>
+//       <h1>{count}</h1>
+//       <h1>{count1}</h1>
+//       <button onClick={increaseHandler}>+</button>
+//       <button onClick={increase}>increase count1 by 10</button>
+      
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+import React,{useState, useEffect, useCallback} from 'react'
 
 function App() {
+  const [count, setCount] = useState(0)
+  const [input, setInput] = useState("")
+  // let count2 = 0
+
+  let complexComputation = useCallback(function(){
+    console.log("text written inside input ", input)
+  }, [input])
+ 
+  function increaseHandler(){
+   setCount(count + 1)
+  }
+
+  useEffect(()=>{
+      console.log("effect running")
+  },[complexComputation])
+
+  complexComputation()
+
   return (
     <div>
-      <nav style={{
-        display: "flex",
-        gap: "20px",
-        border: "1px solid black"
-      }}>
-        <Link to="/home">Home</Link>
-        <Link to="/explore">Explore</Link>
-        <Link to="/profile">Profile</Link>
-      </nav>
-
-      <Routes>
-        <Route path='/home' element={<Home />} />
-        <Route path='/profile' element={<Profile />}/>
-        <Route path='/explore' element={<Explore />}/>
-      </Routes>
+      <h1>{count}</h1>
+      <button onClick={increaseHandler}>+</button>
+      <input type='text' onChange={(e)=> setInput(e.target.value)} />
+      <p>{input}</p>
     </div>
   )
 }
 
 export default App
+
+

@@ -261,35 +261,116 @@
  * import Link tag
  */
 
-import React from 'react'
-import {Routes, Route, Link} from 'react-router-dom'
+// import React from 'react'
+// import {Routes, Route, Link} from 'react-router-dom'
 
-import Home from './components/Home'
-import Explore from './components/Explore'
-import Profile from './components/Profile'
+// import Home from './components/Home'
+// import Explore from './components/Explore'
+// import Profile from './components/Profile'
 
+// function App() {
+//   return (
+
+
+//     <div>
+
+//     <nav >
+//       <Link to="/home">Home</Link> 
+//       <Link to="/explore">Explore</Link> 
+//       <Link to="/profile">Profile</Link>
+//     </nav>
+
+
+//       <Routes>
+//         <Route path='/home' element={<Home />}/>
+//         <Route path='/explore' element={<Explore />}/>
+//         <Route path='/profile' element={<Profile />}/>
+//       </Routes>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+// import React, {useState, useEffect, useRef} from 'react'
+
+// function App() {
+//   const [count, setCount] = useState(0)
+//   // let count2 = 0
+//   const count2 = useRef(0)
+
+//   function increaseCount(){
+//     setCount(()=>{
+//       return count + 1
+//     })
+//   }
+
+//   function increaseRegular(){
+//     count2.current ++
+//     console.log("value of ref variable", count2.current)
+//   }
+
+//   console.log('count state variable, ', count)
+//   console.log('count2 ref variable, ', count2.current)
+//   return (
+//     <div>
+      // <h1>{count}</h1>
+      // <button onClick={increaseCount}>+</button>
+//       <button onClick={increaseRegular}>increase regular variable</button>
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+// import React,{useState, useEffect} from 'react'
+
+// function App() {
+//   const [usersData, setUsersData] = useState([])
+
+//   console.log(usersData)
+
+//   useEffect(()=>{
+//     fetch("https://jsonplaceholder.typicode.com/users")
+//     .then(resp => resp.json())
+//     .then(data => setUsersData(()=> data))
+//   }, [usersData])
+
+//   return (
+//     <div>
+      
+//     </div>
+//   )
+// }
+
+// export default App
+
+import React,{useState, useEffect, useCallback} from 'react'   
 function App() {
+  const [count, setCount] = useState(0)
+
+  let complexfunction = useCallback( function (){
+    console.log("complex computation")
+  },[count])
+
+  function increaseCount(){
+    setCount(()=>{
+      return count + 1
+    })
+  }
+  useEffect(()=>{
+    console.log("effect running")
+  }, [complexfunction])
+  
   return (
-
-
     <div>
-
-    <nav >
-      <Link to="/home">Home</Link> 
-      <Link to="/explore">Explore</Link> 
-      <Link to="/profile">Profile</Link>
-    </nav>
-
-
-      <Routes>
-        <Route path='/home' element={<Home />}/>
-        <Route path='/explore' element={<Explore />}/>
-        <Route path='/profile' element={<Profile />}/>
-      </Routes>
+      <h1>{count}</h1>
+      <button onClick={increaseCount}>+</button>
     </div>
   )
 }
 
 export default App
-
-
