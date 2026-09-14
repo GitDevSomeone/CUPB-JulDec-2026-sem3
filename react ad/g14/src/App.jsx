@@ -202,18 +202,73 @@
 
 // export default App
 
-import React, {useState} from 'react'
+// import React, {useState, useEffect} from 'react'
+
+// function App() {
+//   const [count, setCount] = useState(0)
+//   const [input, setInput] = useState("")
+
+//   function increaseHandler(){
+//     setCount(()=>{
+//       return count + 1
+//     })
+//   }
+//   useEffect(()=>{
+//     console.log("re-rendering")
+//   },[input])
+
+//   return (
+//     <div> 
+//       <h1>{count}</h1>
+//       <button onClick={increaseHandler}>+</button>
+//       <input type='text' onChange={(e)=> setInput(e.target.value)} />
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React,{useState, useEffect} from 'react'
+
+// function App() {
+//   const [users, setUsers] = useState([])
+
+//   console.log(users)
+
+
+//   useEffect(()=>{
+//     fetch("https://jsonplaceholder.typicode.com/users")
+//     .then(response => response.json())
+//     .then(data => setUsers(data))
+//     .catch(error => console.log(error))
+//   }, [])
+
+//   return (
+//     <div>
+      
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+import React, {useState, useEffect} from 'react'
 
 function App() {
   const [count, setCount] = useState(0)
+  let count2 = 0   
+
   function increaseHandler(){
-    setCount(()=>{
-      return count + 1
-    })
+    count2 ++ 
+    setCount(count + 1)
   }
-  console.log("re-rendering")
+
+  console.log(count2)
+
   return (
-    <div>
+    <div> 
       <h1>{count}</h1>
       <button onClick={increaseHandler}>+</button>
     </div>
@@ -221,6 +276,7 @@ function App() {
 }
 
 export default App
+
 
 
 

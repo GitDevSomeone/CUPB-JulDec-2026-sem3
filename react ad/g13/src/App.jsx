@@ -243,37 +243,74 @@
 
 
 
-import React,{useState, useEffect, useCallback} from 'react'
+// import React,{useState, useEffect, useCallback} from 'react'
+
+// function App() {
+//   const [count, setCount] = useState(0)
+//   const [input, setInput] = useState("")
+//   // let count2 = 0
+
+//   let complexComputation = useCallback(function(){
+//     console.log("text written inside input ", input)
+//   }, [input])
+ 
+//   function increaseHandler(){
+//    setCount(count + 1)
+//   }
+
+//   useEffect(()=>{
+//       console.log("effect running")
+//   },[complexComputation])
+
+//   complexComputation()
+
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       <button onClick={increaseHandler}>+</button>
+//       <input type='text' onChange={(e)=> setInput(e.target.value)} />
+//       <p>{input}</p>
+//     </div>
+//   )
+// }
+
+// export default App
+import React from 'react'
+import {Routes, Route, Link} from 'react-router-dom'
+import Home from './components/Home'
+import Explore from "./components/Explore"
+import Profile from "./components/Profile"
+import Posts from './components/Posts'
+import Reels from './components/Reels'
+import Error from './components/Error'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [input, setInput] = useState("")
-  // let count2 = 0
-
-  let complexComputation = useCallback(function(){
-    console.log("text written inside input ", input)
-  }, [input])
- 
-  function increaseHandler(){
-   setCount(count + 1)
-  }
-
-  useEffect(()=>{
-      console.log("effect running")
-  },[complexComputation])
-
-  complexComputation()
-
   return (
     <div>
-      <h1>{count}</h1>
-      <button onClick={increaseHandler}>+</button>
-      <input type='text' onChange={(e)=> setInput(e.target.value)} />
-      <p>{input}</p>
+      <nav style={{
+        display: "flex",
+        gap: "10px"
+      }}>
+        <Link to="/home">Home</Link> 
+        <Link to="/explore">Explore</Link>
+        <Link to="/profile">Profile</Link>
+      </nav>
+      <Routes>
+        <Route path='/home' element={<Home />}/>
+        <Route path='/explore' element={<Explore />}/>
+        <Route path='/profile' element={<Profile />}>
+          <Route path='/profile/posts' element={<Posts />}/>
+          <Route path='/profile/reels' element={<Reels />}/>
+        </Route>
+        <Route path='*' element={<Error />}/>
+        
+
+      </Routes>
     </div>
   )
 }
 
 export default App
+
 
 
