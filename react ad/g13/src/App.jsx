@@ -283,6 +283,8 @@ import Profile from "./components/Profile"
 import Posts from './components/Posts'
 import Reels from './components/Reels'
 import Error from './components/Error'
+import Login from './components/Login'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
   return (
@@ -296,12 +298,30 @@ function App() {
         <Link to="/profile">Profile</Link>
       </nav>
       <Routes>
-        <Route path='/home' element={<Home />}/>
-        <Route path='/explore' element={<Explore />}/>
-        <Route path='/profile' element={<Profile />}>
+        <Route path='/' element={<Login />} />
+
+        <Route path='/home' element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+          }/>
+
+
+        <Route path='/explore' element={
+        <ProtectedRoute>
+          <Explore/>
+        </ProtectedRoute>}/>
+        {/* <Route path='/users/:username' element={<Profile />} />
+ */}
+        <Route path='/profile' element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+          }>
           <Route path='/profile/posts' element={<Posts />}/>
           <Route path='/profile/reels' element={<Reels />}/>
-        </Route>
+        </Route> 
+        
         <Route path='*' element={<Error />}/>
         
 
