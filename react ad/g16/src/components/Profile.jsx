@@ -1,12 +1,15 @@
 import React from 'react'
-import {Link, Outlet} from 'react-router-dom'
+import {Link, Outlet, useParams} from 'react-router-dom'
 
 function Profile() {
+  const data = useParams()
+
+  console.log(data.username)
   return (
     <div>
       <Outlet />
       <h1>profile component</h1>
-      <h2>name: himanshu</h2>
+      <h2>name: {data.username}</h2>
       <h3>followers; 12, following: 123</h3>
 
       <nav  style={{

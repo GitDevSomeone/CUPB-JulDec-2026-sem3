@@ -229,17 +229,56 @@
 
 
 
-import React,{useState} from 'react'
+// import React,{useState, useEffect} from 'react'
+
+// function App() {
+//   const [count, setCount] = useState(0)
+//   const [input, setInput] = useState("")
+//   function increaseHandler(){
+//     setCount(()=>{
+//       return count + 1
+//     })
+//   }
+//   function inputHandler(event){
+//     setInput(event.target.value)
+//   }
+//   useEffect(()=>{
+//     console.log("effect after count ran")
+//   }, [count])
+//   useEffect(()=>{
+//     console.log("effect after input ran")
+//   }, [input])
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       <button onClick={increaseHandler}>+</button>
+//       <input type='text' 
+//         onChange={inputHandler}
+//       />
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+import React,{useState, useEffect, useCallback} from 'react'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  let count2 = useCallback(function (){
+    console.log(count)
+    // 10000 loc
+  } ,[count])
+  count2()
   function increaseHandler(){
     setCount(()=>{
       return count + 1
     })
   }
-  console.log("hello world")
+  useEffect(()=>{
+    // console.log("effect ran")
+  }, [count2])
 
   return (
     <div>
@@ -250,5 +289,4 @@ function App() {
 }
 
 export default App
-
 

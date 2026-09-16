@@ -254,19 +254,25 @@
 // export default App
 
 
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 
 function App() {
   const [count, setCount] = useState(0)
-  let count2 = 0   
 
+  let  count2 = useCallback(function(){
+    console.log("something happening")
+    // 10000 loc
+  }, [])
+
+  
+   
   function increaseHandler(){
-    count2 ++ 
     setCount(count + 1)
   }
-
-  console.log(count2)
-
+  useEffect(()=>{
+    console.log("effect ran")
+  }, [count2])
+  
   return (
     <div> 
       <h1>{count}</h1>

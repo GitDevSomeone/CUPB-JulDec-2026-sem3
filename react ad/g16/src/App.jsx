@@ -382,6 +382,9 @@ import Profile from "./components/Profile"
 import Photos from './components/Photos'
 import Reels from './components/Reels'
 import Error from './components/Error'
+import Login from './components/Login'
+import ProtectedRoute from './components/ProtectedRoute'
+let username = ["Himanshu" , "Utkarsh", "g16", "user4"]
 
 function App() {
   return (
@@ -392,15 +395,33 @@ function App() {
       }}>
         <Link to="/home">Home</Link>
         <Link to="/explore">Explore</Link>
-        <Link to="/profile">Profile</Link>
+
+        {/* {username.map((value, index)=>{
+          return <Link to={"/profile/"+value}>{value}'s Profile</Link>
+        })} */}
+
       </nav>
       <Routes>
-        <Route path='/home' element={<Home />} />
-        <Route path='/explore' element={<Explore />} />
+        <Route path='/' element={<Login />} />
+        <Route path='/home' element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute> 
+          } />
+        <Route path='/explore' element={
+          <ProtectedRoute>
+            <Explore />
+          </ProtectedRoute> 
+          } />
+    
+
+        <Route path='/profile/:username' element={<Profile />} />
+
+{/* 
         <Route path='/profile' element={<Profile />} >
           <Route path='/profile/photos' element={<Photos />} />
           <Route path='/profile/reels' element={<Reels />} />
-        </Route>
+        </Route> */}
         <Route path='*' element={<Error />} />
         
       </Routes>
