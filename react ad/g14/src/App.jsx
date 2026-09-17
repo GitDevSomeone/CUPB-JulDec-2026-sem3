@@ -254,29 +254,65 @@
 // export default App
 
 
-import React, {useState, useEffect, useCallback} from 'react'
+// import React, {useState, useEffect, useCallback} from 'react'
 
-function App() {
-  const [count, setCount] = useState(0)
+// function App() {
+//   const [count, setCount] = useState(0)
 
-  let  count2 = useCallback(function(){
-    console.log("something happening")
-    // 10000 loc
-  }, [])
+//   let  count2 = useCallback(function(){
+//     console.log("something happening")
+//     // 10000 loc
+//   }, [])
 
   
    
-  function increaseHandler(){
-    setCount(count + 1)
-  }
-  useEffect(()=>{
-    console.log("effect ran")
-  }, [count2])
+//   function increaseHandler(){
+//     setCount(count + 1)
+//   }
+//   useEffect(()=>{
+//     console.log("effect ran")
+//   }, [count2])
   
+//   return (
+//     <div> 
+//       <h1>{count}</h1>
+//       <button onClick={increaseHandler}>+</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+import React from 'react'
+import {Routes, Route, Link} from 'react-router-dom'
+import Home from "./components/Home"
+import Explore from './components/Explore'
+import Profile from './components/Profile'
+import Photos from './components/Photos'
+import Reels from "./components/Reels"
+
+function App() {
   return (
-    <div> 
-      <h1>{count}</h1>
-      <button onClick={increaseHandler}>+</button>
+    <div>
+      <nav style={{
+        display: "flex",
+        gap: "10px"
+      }}>
+        <Link to="/home">Home</Link>
+        <Link to="/explore">Explore</Link>
+        <Link to="/profile/photos">Profile</Link>
+      </nav>
+      <Routes>
+        <Route path='/home' element={<Home />}/>
+        <Route path='/explore' element={<Explore />}/>
+        <Route path='/profile' element={<Profile />}>
+          <Route path='/profile/photos' element={<Photos />}/>
+          <Route path='/profile/reels' element={<Reels />}/>
+        </Route>
+        <Route path='*' element={<h1>404 not found</h1>} />
+       
+      </Routes>
+      
     </div>
   )
 }
