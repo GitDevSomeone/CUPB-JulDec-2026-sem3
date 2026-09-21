@@ -374,58 +374,82 @@
 // }
 
 // export default App
-import React from 'react'
-import {Routes, Route, Link} from 'react-router-dom'
-import Home from './components/Home'
-import Explore from './components/Explore'
-import Profile from "./components/Profile"
-import Photos from './components/Photos'
-import Reels from './components/Reels'
-import Error from './components/Error'
-import Login from './components/Login'
-import ProtectedRoute from './components/ProtectedRoute'
-let username = ["Himanshu" , "Utkarsh", "g16", "user4"]
+// import React from 'react'
+// import {Routes, Route, Link} from 'react-router-dom'
+// import Home from './components/Home'
+// import Explore from './components/Explore'
+// import Profile from "./components/Profile"
+// import Photos from './components/Photos'
+// import Reels from './components/Reels'
+// import Error from './components/Error'
+// import Login from './components/Login'
+// import ProtectedRoute from './components/ProtectedRoute'
+// let username = ["Himanshu" , "Utkarsh", "g16", "user4"]
 
-function App() {
-  return (
-    <div>
-      <nav style={{
-        display: "flex",
-        gap: "10px"
-      }}>
-        <Link to="/home">Home</Link>
-        <Link to="/explore">Explore</Link>
+// function App() {
+//   return (
+//     <div>
+//       <nav style={{
+//         display: "flex",
+//         gap: "10px"
+//       }}>
+//         <Link to="/home">Home</Link>
+//         <Link to="/explore">Explore</Link>
 
-        {/* {username.map((value, index)=>{
-          return <Link to={"/profile/"+value}>{value}'s Profile</Link>
-        })} */}
+//         {/* {username.map((value, index)=>{
+//           return <Link to={"/profile/"+value}>{value}'s Profile</Link>
+//         })} */}
 
-      </nav>
-      <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/home' element={
-          <ProtectedRoute>
-            <Home />
-          </ProtectedRoute> 
-          } />
-        <Route path='/explore' element={
-          <ProtectedRoute>
-            <Explore />
-          </ProtectedRoute> 
-          } />
+//       </nav>
+//       <Routes>
+//         <Route path='/' element={<Login />} />
+//         <Route path='/home' element={
+//           <ProtectedRoute>
+//             <Home />
+//           </ProtectedRoute> 
+//           } />
+//         <Route path='/explore' element={
+//           <ProtectedRoute>
+//             <Explore />
+//           </ProtectedRoute> 
+//           } />
     
 
-        <Route path='/profile/:username' element={<Profile />} />
+//         <Route path='/profile/:username' element={<Profile />} />
 
-{/* 
-        <Route path='/profile' element={<Profile />} >
-          <Route path='/profile/photos' element={<Photos />} />
-          <Route path='/profile/reels' element={<Reels />} />
-        </Route> */}
-        <Route path='*' element={<Error />} />
+// {/* 
+//         <Route path='/profile' element={<Profile />} >
+//           <Route path='/profile/photos' element={<Photos />} />
+//           <Route path='/profile/reels' element={<Reels />} />
+//         </Route> */}
+//         <Route path='*' element={<Error />} />
         
-      </Routes>
+//       </Routes>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+import React, { useState } from 'react'
+import Child from './components/Child'
+import { createContext } from 'react'
+
+export let UserContext = createContext()
+
+function App() {
+  const [username, setUsername] = useState("Himanshu")
+  return (
+    <UserContext.Provider value={username}>
+       <div style={{border: "1px solid black", padding: "3px"}}>
+      <h1>this is App Component</h1>
+      
+      <Child />
     </div>
+    </UserContext.Provider>
+   
   )
 }
 

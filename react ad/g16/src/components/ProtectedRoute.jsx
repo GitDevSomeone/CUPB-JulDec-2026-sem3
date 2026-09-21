@@ -1,9 +1,14 @@
 import React from 'react'
+import Login from './Login'
 
-function ProtectedRoute() {
-  // check local storage
-  // true -> component screen render
-  // false -> login component screen render
+function ProtectedRoute({children}) {
+  const loginStatus = localStorage.getItem("isLoggedIn")
+  console.log(loginStatus)
+  if(loginStatus == "true"){
+    return children
+  }else {
+    return <Login />
+  }
 }
 
 export default ProtectedRoute

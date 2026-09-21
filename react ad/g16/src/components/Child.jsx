@@ -1,11 +1,13 @@
 import React from 'react'
+import GrandChild from './GrandChild'
 
-function Child(props){
-    return<>
-        <h1 style={{
-            color: props.cl
-        }}>Welcome {props.un}</h1>
-    </>
+function Child() {
+  return (
+    <div style={{border: "1px solid black", padding: "3px"}}>
+      <h1>this is child component</h1>
+      <GrandChild />
+    </div>
+  )
 }
 
 export default Child
