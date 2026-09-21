@@ -9,8 +9,8 @@ function Login() {
 
     function loginHandler(){
         if(username == "user1" && password == "user1"){
+          localStorage.setItem("isLoggedIn", "true")
             navigate("/home")
-            localStorage.setItem("isLoggedIn", "true")
         }else{
             navigate("/")
         }
@@ -21,7 +21,7 @@ function Login() {
       onChange={(event)=> setUsername(event.target.value)}/>
       password: <input type='password' 
       onChange={(event)=> setPassword(event.target.value)}/>
-      <button onClick={loginHandler}>login</button>
+      <button onClick={ loginHandler }>login</button>
     </div>
   )
 }
