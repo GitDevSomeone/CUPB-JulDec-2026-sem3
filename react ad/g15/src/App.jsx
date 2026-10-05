@@ -262,31 +262,75 @@
 // export default App
 
 
-import React,{useState, useEffect, useCallback} from 'react'
+// import React,{useState, useEffect, useCallback} from 'react'
+
+// function App() {
+//   const [count, setCount] = useState(0)
+//   let count2 = useCallback(function (){
+//     console.log(count)
+//     // 10000 loc
+//   } ,[count])
+//   count2()
+//   function increaseHandler(){
+//     setCount(()=>{
+//       return count + 1
+//     })
+//   }
+//   useEffect(()=>{
+//     // console.log("effect ran")
+//   }, [count2])
+
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       <button onClick={increaseHandler}>+</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+import React from 'react'
+import Home from './components/Home'
+import Explore from './components/Explore'
+import Profile from './components/Profile'
+import Photos from './components/Photos'
+import Reels from './components/Reels'
+import Login from './components/Login'
+import {Routes, Route, Link} from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
-  let count2 = useCallback(function (){
-    console.log(count)
-    // 10000 loc
-  } ,[count])
-  count2()
-  function increaseHandler(){
-    setCount(()=>{
-      return count + 1
-    })
-  }
-  useEffect(()=>{
-    // console.log("effect ran")
-  }, [count2])
-
   return (
     <div>
-      <h1>{count}</h1>
-      <button onClick={increaseHandler}>+</button>
+      <nav style={{display:"flex", gap: "10px"}}>
+        <Link to="/home">Home</Link> 
+        <Link to="/explore">Explore</Link>
+        <Link to="/profile">Profile</Link>
+        {/* <Link to="/profile/smark">smarks's profile</Link>
+        <Link to="/profile/himanshu">himanshu's profile</Link> */}
+
+      </nav>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/explore' element={<Explore />} />
+        {/* <Route path='/profile/:username/:profile' element={<Profile />} /> */}
+        <Route path='/profile/himanshu' element={<Profile />} />
+        <Route path='/profile/smark' element={<Profile />} />
+        <Route path='/profile/raghav' element={<Profile />} />
+
+
+        {/* <Route path='/profile' element={<Profile />} >
+          <Route path='/profile/photos' element={<Photos />} />
+          <Route path='/profile/reels' element={<Reels />} />
+        </Route>  */}
+      </Routes>
     </div>
   )
 }
 
 export default App
+
 
