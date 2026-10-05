@@ -1,46 +1,54 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
 
 function Form() {
-    const [ name, setName ] = useState("")
+    const [name, setName] = useState("")
+    const [group, setGroup] = useState("")
+    const [gender, setGender] = useState("")
+    const [status, setStatus] = useState("")
+
+    function submitHandler(event){
+        event.preventDefault()
+        if(name == "" || group == "" || gender == ""){
+            console.log("fill all the fields")
+            setStatus("fill out all the fields")
+        }else{
+            console.log(name, group, gender) // fetch request - backend
+            setStatus("form submitted successfully")
+        }
+    }
   return (
-    <>
-        <form>
-        <label>Name</label>
-        <input type='text' 
-            value={name}
-            onChange={(event)=> {
-                let str ;
-                str = event.target.value.replace(/[@#$123]/g, "")
-                setName(str)
-            }}
-        /> <br />
-        {name} <br />
-        <label>group</label>
-        <select>
-            <option>g10</option>
-            <option>g11</option>
-            <option>g12</option>
-            <option>g13</option>
-            <option>g14</option>
-            <option>g15</option>
-            <option>g16</option>
-        </select> <br/>
+    <form onSubmit={submitHandler}>
+        name: <input type='text' 
+            onChange={(event)=> setName(event.target.value) }
+            value={name}/><br/>
 
-        <label>gender</label>
-        <input type='radio' name='gender'/> male
-        <input type='radio' name='gender'/> female <br />
+        
 
-        <label>subject</label>
-        <input type='checkbox' /> fee2
-        <input type='checkbox' /> dbms
-        <input type='checkbox' /> java <br/>
+        group: 
+        <select onChange={(event)=> setGroup(event.target.value)}
+            value={group}
+            >
+            <option value="">--select group--</option>
+            <option value="g13">G13</option>
+            <option value="g14">G14</option>
+            <option value="g15">G15</option>
+            <option value="g16">G16</option>
+        </select><br/>
+
+        gender:
+        <input type='radio' name="gender" 
+        onChange={()=> setGender("male")}
+        checked={gender == "male"}
+        />male
+
+        <input type='radio' name='gender' 
+        onChange={()=> setGender("female")}
+        checked={gender == "female"}/>female<br/>
+
 
         <button>submit</button>
-
-
-        </form>
-        <button onClick={()=> setName("")}>clear name</button>
-    </>
+        <h2>{status}</h2>
+    </form>
   )
 }
 
