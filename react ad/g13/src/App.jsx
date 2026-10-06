@@ -357,13 +357,32 @@
 
 
 
-import React from 'react'
-import Form from './components/Form'
+import React, { useState } from 'react'
+// import Form from './components/Form'
+import Popup from './components/Popup'
+
+const data = [
+  {
+    name: "React",
+    description: "A JavaScript library used to build user interfaces."
+  },
+  {
+    name: "JavaScript",
+    description: "A programming language used to make web pages interactive."
+  },
+  {
+    name: "HTML",
+    description: "A markup language used to create the structure of web pages."
+  }
+];
+
 
 function App() {
+  const [showModal, setShowModal] = useState(false)
   return (
     <div>
-      <Form />
+      <button onClick={()=> setShowModal(true)}>open model</button>
+      {showModal == true ? <Popup onClose={setShowModal}/> : <></>}
     </div>
   )
 }
