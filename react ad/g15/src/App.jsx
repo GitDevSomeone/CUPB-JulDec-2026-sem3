@@ -292,45 +292,83 @@
 
 
 
-import React from 'react'
-import Home from './components/Home'
-import Explore from './components/Explore'
-import Profile from './components/Profile'
-import Photos from './components/Photos'
-import Reels from './components/Reels'
-import Login from './components/Login'
-import {Routes, Route, Link} from 'react-router-dom'
+// import React from 'react'
+// import Home from './components/Home'
+// import Explore from './components/Explore'
+// import Profile from './components/Profile'
+// import Photos from './components/Photos'
+// import Reels from './components/Reels'
+// import Login from './components/Login'
+// import {Routes, Route, Link} from 'react-router-dom'
+// import ProtectedRoutes from './components/ProtectedRoutes'
+
+// function App() {
+//   return (
+//     <div>
+//       <nav style={{display:"flex", gap: "10px"}}>
+//         <Link to="/home">Home</Link> 
+//         <Link to="/explore">Explore</Link>
+//         {/* <Link to="/profile">Profile</Link> */}
+//         {/* <Link to="/profile/smark">smarks's profile</Link>
+//         <Link to="/profile/himanshu">himanshu's profile</Link> */}
+
+//       </nav>
+//       <Routes>
+//         <Route path='/' element={<Login />} />
+//         <Route path='/home' element={
+//           <ProtectedRoutes>
+//             <Home />
+//           </ProtectedRoutes>
+          
+//           } />
+//         <Route path='/explore' element={
+//           <ProtectedRoutes>
+//             <Explore />
+//           </ProtectedRoutes>
+          
+//           } />
+//         {/* <Route path='/profile/:username/:profile' element={<Profile />} /> */}
+//         {/* <Route path='/profile/himanshu' element={<Profile />} />
+//         <Route path='/profile/smark' element={<Profile />} />
+//         <Route path='/profile/raghav' element={<Profile />} /> */}
+
+
+//         {/* <Route path='/profile' element={<Profile />} >
+//           <Route path='/profile/photos' element={<Photos />} />
+//           <Route path='/profile/reels' element={<Reels />} />
+//         </Route>  */}
+//       </Routes>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+import {useState} from 'react'
+import Child from './components/Child'
+import { createContext } from 'react'
+
+export const UserContext = createContext()
+
 
 function App() {
+  const [username, setUsername] = useState("himanshu")
   return (
-    <div>
-      <nav style={{display:"flex", gap: "10px"}}>
-        <Link to="/home">Home</Link> 
-        <Link to="/explore">Explore</Link>
-        <Link to="/profile">Profile</Link>
-        {/* <Link to="/profile/smark">smarks's profile</Link>
-        <Link to="/profile/himanshu">himanshu's profile</Link> */}
-
-      </nav>
-      <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/explore' element={<Explore />} />
-        {/* <Route path='/profile/:username/:profile' element={<Profile />} /> */}
-        <Route path='/profile/himanshu' element={<Profile />} />
-        <Route path='/profile/smark' element={<Profile />} />
-        <Route path='/profile/raghav' element={<Profile />} />
-
-
-        {/* <Route path='/profile' element={<Profile />} >
-          <Route path='/profile/photos' element={<Photos />} />
-          <Route path='/profile/reels' element={<Reels />} />
-        </Route>  */}
-      </Routes>
-    </div>
+    <UserContext.Provider value={username}>
+      <div style={{
+        border: "1px solid black",
+        padding: "3px"
+      }}>
+        <h1>this is App Component</h1>
+        
+        <Child  />
+      </div>
+    </UserContext.Provider>
   )
 }
 
 export default App
+
 
 
