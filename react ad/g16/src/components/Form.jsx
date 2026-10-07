@@ -4,23 +4,55 @@ function Form() {
     const [name, setName] = useState("")
     const [group, setGroup] = useState("")
     const [gender, setGender] = useState("")
-    const [status, setStatus] = useState("")
+    const [errors, setErrors] = useState({})
+    
 
     function submitHandler(event){
         event.preventDefault()
-        if(name == "" || group == "" || gender == ""){
-            console.log("fill all the fields")
-            setStatus("fill out all the fields")
-        }else{
-            console.log(name, group, gender) // fetch request - backend
-            setStatus("form submitted successfully")
+        const newError = {}
+
+        if(name == ""){
+            newError.name = "Name field is required"
         }
+
+        if(name == "himanshu") {
+            newError.name = "name cannot be himanshu"
+        }
+
+      
+
+        if(group == ""){
+            newError.group = "Group field is required"
+        }
+
+        if(gender == ""){
+            newError.gender = "gender field is required" 
+        }
+
+        setErrors(newError)
     }
   return (
     <form onSubmit={submitHandler}>
         name: <input type='text' 
+            style={{
+                backgroundColor: errors.name ? "red" : ""
+            }}
+            onBlur={()=>{
+                  if(!/^[A-Za-z]*$/.test(name)){
+                    //    setErrors(()=>{
+                    //      let copyError = {...errors}
+                    //      copyError.name = "it should only contain normal charachter"
+                    //      return copyError
+                    //    })
+
+                       setErrors({...errors, name: "it should only contain normal charachter"})
+                    }
+        
+            }}
             onChange={(event)=> setName(event.target.value) }
             value={name}/><br/>
+
+            <p style={{color: "red"}}>{errors.name}</p>
 
         
 
@@ -35,6 +67,8 @@ function Form() {
             <option value="g16">G16</option>
         </select><br/>
 
+        <p style={{color: "red"}}>{errors.group}</p>
+
         gender:
         <input type='radio' name="gender" 
         onChange={()=> setGender("male")}
@@ -45,9 +79,11 @@ function Form() {
         onChange={()=> setGender("female")}
         checked={gender == "female"}/>female<br/>
 
+        <p style={{color: "red"}}>{errors.gender}</p>
+
 
         <button>submit</button>
-        <h2>{status}</h2>
+  
     </form>
   )
 }

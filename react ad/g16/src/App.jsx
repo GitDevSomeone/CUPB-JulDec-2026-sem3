@@ -455,13 +455,17 @@
 
 // export default App
 
-import React from 'react'
-import Form from './components/Form'
+import {useState} from 'react'
+// import Form from './components/Form'
+import Popup from './components/Popup'
 
 function App() {
+  const [showModal, setShowModal] = useState(false)
   return (
     <div>
-      <Form />
+      <button onClick={()=> setShowModal(true)}>open modal</button>
+      
+      {showModal == true ? <Popup onClose={setShowModal}/> : <></>}
     </div>
   )
 }

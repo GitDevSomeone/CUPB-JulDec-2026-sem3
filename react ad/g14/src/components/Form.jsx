@@ -4,6 +4,9 @@ function Form() {
     const [name, setName] = useState("")
     const [group, setGroup] = useState("")
     const [gender, setGender] = useState("male")
+    
+
+  
   return (
     <form>
 
@@ -40,6 +43,9 @@ function Form() {
         onChange={()=> setGender("female")}
         checked={gender == "female"}
         /> female <br/>
+
+    
+
 
         <button>submit</button>
 
