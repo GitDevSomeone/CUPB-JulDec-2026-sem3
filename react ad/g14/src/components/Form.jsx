@@ -3,15 +3,24 @@ import {useState} from 'react'
 function Form() {
     const [name, setName] = useState("")
     const [group, setGroup] = useState("")
-    const [gender, setGender] = useState("male")
-    
+    const [gender, setGender] = useState("")
+    const [status, setStatus] = useState("")
 
-  
+    function submitHandler(event){
+        event.preventDefault()
+        if(name == "" || group == "" || gender == ""){
+            console.log("error")
+            setStatus("all the fields are not filled")
+        }else{
+            setStatus("form submitted successfully")
+            console.log(name, group, gender) // fetch request - backend
+        }
+    }
+
   return (
-    <form>
-
-        <label>name</label>
-        
+    
+    <form onSubmit={submitHandler}> 
+        <label>name</label> 
         <input type='text' 
             onChange={(event)=> {
                 let newVal = event.target.value
@@ -21,7 +30,7 @@ function Form() {
             } }
             value={name}
         /> <br />
-    <p>{group}</p>
+  
         <label>group </label>
         <select 
         onChange={(event) => setGroup(event.target.value)}
@@ -33,7 +42,6 @@ function Form() {
             <option value="g15">G15</option>
             <option value="g16">G16</option>
         </select> <br />
-            <p>{gender}</p>
         <label>Gender </label>
         <input type='radio' name='gender' 
         onChange={()=> setGender("male")}
@@ -43,13 +51,8 @@ function Form() {
         onChange={()=> setGender("female")}
         checked={gender == "female"}
         /> female <br/>
-
-    
-
-
         <button>submit</button>
-
-      
+        {status}
     </form>
   )
 }
