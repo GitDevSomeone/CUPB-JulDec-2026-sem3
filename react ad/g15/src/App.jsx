@@ -345,30 +345,45 @@
 // export default App
 
 
-import {useState} from 'react'
-import Child from './components/Child'
-import { createContext } from 'react'
+// import {useState} from 'react'
+// import Child from './components/Child'
+// import { createContext } from 'react'
 
-export const UserContext = createContext()
+// export const UserContext = createContext()
 
+
+// function App() {
+//   const [username, setUsername] = useState("himanshu")
+//   return (
+//     <UserContext.Provider value={username}>
+//       <div style={{
+//         border: "1px solid black",
+//         padding: "3px"
+//       }}>
+//         <h1>this is App Component</h1>
+        
+//         <Child  />
+//       </div>
+//     </UserContext.Provider>
+//   )
+// }
+
+// export default App
+
+
+import React from 'react'
+import Form from "./components/Form"
 
 function App() {
-  const [username, setUsername] = useState("himanshu")
   return (
-    <UserContext.Provider value={username}>
-      <div style={{
-        border: "1px solid black",
-        padding: "3px"
-      }}>
-        <h1>this is App Component</h1>
-        
-        <Child  />
-      </div>
-    </UserContext.Provider>
+    <div>
+      <Form />
+    </div>
   )
 }
 
 export default App
+
 
 
 
