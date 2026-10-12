@@ -4,7 +4,7 @@ function Form() {
     const [name, setName] = useState("")
     const [group, setGroup] = useState("")
     const [gender, setGender] = useState("")
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({}) // this will hold field specific validation error if any
 
     function submitHandler(event){
         event.preventDefault()
@@ -27,8 +27,8 @@ function Form() {
     <form onSubmit={submitHandler}> 
         <label>name</label> 
         <input type='text' 
-            onBlur={()=>{
-                if(/\d/.test(name)){
+            onBlur={()=>{  // when input field looses focus - no longer taking input 
+                if(/\d/.test(name)){ // regular expression to check weather the name string have digit in it or not
                     setErrors(()=>{
                         let copyObj = {...errors}
                         copyObj.name = "name should not contain numbers"
@@ -42,7 +42,7 @@ function Form() {
             }}
             onChange={(event)=> {
                 let newVal = event.target.value
-                if(!newVal.includes("@")){
+                if(!newVal.includes("@")){  // thi swill not let user type @ inside input field
                     setName(newVal)
                 }
             } }

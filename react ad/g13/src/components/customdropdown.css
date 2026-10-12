@@ -1,0 +1,12 @@
+.selected-option-div{
+    border: 1px solid black;
+    margin-bottom: 4px;
+}
+
+.option-div {
+    border: 1px solid black
+}
+
+.option:hover {
+    background-color: beige;
+}
