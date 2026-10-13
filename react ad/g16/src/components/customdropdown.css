@@ -1,0 +1,16 @@
+.dropdown-select {
+    border: 1px solid black;
+    margin-bottom: 3px;
+}
+
+.dropdown-options {
+    border: 1px solid black
+}
+
+.option:hover {
+    background-color: beige;
+}
+
+.arrow {
+    float: right;
+}

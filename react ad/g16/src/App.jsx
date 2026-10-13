@@ -455,20 +455,41 @@
 
 // export default App
 
-import {useState} from 'react'
-// import Form from './components/Form'
-import Popup from './components/Popup'
+// import {useState} from 'react'
+// // import Form from './components/Form'
+// import Popup from './components/Popup'
+
+// function App() {
+//   const [showModal, setShowModal] = useState(false)
+  
+//   return (
+//     <div>
+//       <button onClick={()=> setShowModal(true)}>open modal</button>
+      
+//       {showModal == true ? <Popup onClose={setShowModal}/> : <></>}
+//     </div>
+//   )
+// }
+
+// export default App
+
+import React from 'react'
+import CustomDropDown from './components/CustomDropDown'
+import Checkbox from './components/Checkbox'
 
 function App() {
-  const [showModal, setShowModal] = useState(false)
   return (
     <div>
-      <button onClick={()=> setShowModal(true)}>open modal</button>
-      
-      {showModal == true ? <Popup onClose={setShowModal}/> : <></>}
+      {/* <CustomDropDown  option = {["G12","G13", "G14", "G15", "G16"]}/>
+
+      <CustomDropDown  option = {["G8","G9", "G10", "G11"]}/> */}
+
+        <Checkbox />
+
     </div>
   )
 }
 
 export default App
+
 

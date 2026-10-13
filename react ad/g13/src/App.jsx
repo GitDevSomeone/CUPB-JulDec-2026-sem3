@@ -375,21 +375,63 @@
 // export default App
 
 
+// import React from 'react'
+// import CustomDropDown from './components/CustomDropDown'
+
+// function App() {
+//   return (
+//     <div>
+//       <CustomDropDown option = {["G14", "G13", "G15", "G16", "G12"]}/>
+
+//       <CustomDropDown option = {["G8", "G9", "G10", "G11"]}/>
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React, { useState } from 'react'
+
+// function App() {
+//   const [subjects, setSubjects] = useState([])
+//   function handleChange(event){
+//     if(event.target.checked){
+//       setSubjects([...subjects, event.target.value])
+//     }else{
+//       const newArr = [...subjects]
+//       const index = subjects.indexOf(event.target.value)
+//       newArr.splice(index,1)
+//       setSubjects(newArr)
+//     }
+//   }
+//   return (
+//     <div>
+//       <p>{subjects}</p>
+//       <input type='checkbox' value="fee" onChange={handleChange} />FEE
+//       <input type='checkbox' value="dbms" onChange={handleChange} />DBMS
+//       <input type='checkbox' value="java" onChange={handleChange} />JAVA
+//     </div>
+//   )
+// }
+
+// export default App
+
 import React from 'react'
-import CustomDropDown from './components/CustomDropDown'
+import Api from "./components/Api"
 
 function App() {
   return (
     <div>
-      <CustomDropDown option = {["G14", "G13", "G15", "G16", "G12"]}/>
-
-      <CustomDropDown option = {["G8", "G9", "G10", "G11"]}/>
-
+      <Api />
     </div>
   )
 }
 
 export default App
+
+
 
 
 

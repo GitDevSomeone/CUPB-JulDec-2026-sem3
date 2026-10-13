@@ -2,9 +2,10 @@ import React from 'react'
 import "./popup.css"
 
 function Popup(props) {
-    setTimeout(()=>{
-        props.onClose(false)
-    },3000)
+  setTimeout(()=>{
+    props.onClose(false)
+  },4000)
+    
   return (
     <div className='modal' onClick={()=> props.onClose(false)}>
       <div className='modal-content'>
