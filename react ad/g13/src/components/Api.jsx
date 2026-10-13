@@ -20,14 +20,6 @@ function Api() {
   })
   }, [search])
 
- 
-  
-  
-
-
-
-
-
   return (
     <>
    

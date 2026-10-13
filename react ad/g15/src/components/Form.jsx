@@ -3,12 +3,39 @@ import {useState} from 'react'
 function Form() {
     const [name, setName] = useState("")
     const [group, setGroup] = useState("")
-    const [gender, setGender] = useState("female")
-    const [courses, setCourses] = useState([])
+    const [gender, setGender] = useState("")
+    const [errors, setErrors] = useState({})
+    
+
+    function submitHandler(event){
+      event.preventDefault()
+      const newErrors = {}
+      
+      if(name == ""){
+        newErrors.name = "name field is required"
+      }
+
+      // if()
+
+      if(group == ""){
+        newErrors.group = "group field is required"
+      }
+
+      if(gender == ""){
+        newErrors.gender = "gender field is required"
+      }
+
+      setErrors(newErrors)
+     
+    }
+    
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <label>Name </label>
       <input type='text' 
+        style={{
+          backgroundColor: errors.name ? "red" : ""
+        }}
         onChange={(event)=> {
             if(!event.target.value.includes("@")){
                 setName(event.target.value)
@@ -16,6 +43,7 @@ function Form() {
         }}    
         value={name}
       /> <br />
+      <p style={{color: "red"}}>{errors.name}</p>
 <p>{group}</p>
       <label>group </label>
       <select onChange={(event)=> setGroup(event.target.value)}
@@ -28,6 +56,9 @@ function Form() {
         <option value="g16">group 16</option>
       </select> <br/>
 
+      <p style={{color: "red"}}>{errors.group}</p>
+
+
       <label>Gender</label>
       <input type='radio' name='gender' 
       onChange={()=> setGender("male")}
@@ -39,12 +70,12 @@ function Form() {
       checked={gender == "female"}
       /> Female <br/>
 
-      <label>courses</label>
-      <input type='checkbox' value="fee" />FEE
-      <input type='checkbox' value="java" />JAVA
-      <input type='checkbox' value="dbms" />DBMS
+
+      <p style={{color: "red"}}>{errors.gender}</p>
 
 
+        <button>submit</button>
+        
 
     </form>
   )
