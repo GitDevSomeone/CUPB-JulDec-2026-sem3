@@ -18,7 +18,9 @@ function Api() {
       return true
     }
   })
-  }, [search])
+  }, [search, products])
+
+  console.log(searchedProducts)
 
   return (
     <>
