@@ -407,14 +407,15 @@
 // export default App
 
 
-import React from 'react'
+import {useState} from 'react'
 import CustomDropDown from './components/CustomDropDown'
 
 function App() {
+  const [group, setGroup] = useState("")
   return (
     <div>
-      <CustomDropDown options={["G12", "G13", "G14", "G15", "G16"]}/>
-      <CustomDropDown options={["a", "b", "c", "d"]}/>
+      <CustomDropDown options={["G12", "G13", "G14", "G15", "G16"]} onSelect={setGroup}/>
+    <h2>{group}</h2>
 
     </div>
   )

@@ -473,19 +473,34 @@
 
 // export default App
 
+// import React from 'react'
+// import CustomDropDown from './components/CustomDropDown'
+// import Checkbox from './components/Checkbox'
+
+// function App() {
+//   return (
+//     <div>
+//       {/* <CustomDropDown  option = {["G12","G13", "G14", "G15", "G16"]}/>
+
+//       <CustomDropDown  option = {["G8","G9", "G10", "G11"]}/> */}
+
+//         <Checkbox />
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
 import React from 'react'
-import CustomDropDown from './components/CustomDropDown'
-import Checkbox from './components/Checkbox'
+import Api from './components/Api'
 
 function App() {
   return (
     <div>
-      {/* <CustomDropDown  option = {["G12","G13", "G14", "G15", "G16"]}/>
-
-      <CustomDropDown  option = {["G8","G9", "G10", "G11"]}/> */}
-
-        <Checkbox />
-
+      <Api />
     </div>
   )
 }

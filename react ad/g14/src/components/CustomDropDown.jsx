@@ -20,6 +20,7 @@ function CustomDropDown(props) {
                             onClick={()=>{
                                 setSelected(value)
                                 setShowOptions(false)
+                                props.onSelect(value)
                             }}
                         className='option'>
                             {value}
