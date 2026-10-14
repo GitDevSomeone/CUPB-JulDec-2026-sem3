@@ -1,0 +1,18 @@
+.dropdown-select{
+    border: 1px solid black;
+    padding-left: 3px;
+    margin-bottom: 2px;
+}
+
+.dropdown-options {
+     border: 1px solid black;
+    padding-left: 3px;
+}
+
+.option:hover {
+    background-color: beige;
+}
+
+span {
+    float: right
+}

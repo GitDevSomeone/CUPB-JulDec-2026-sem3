@@ -377,18 +377,52 @@
 
 // export default App
 
+// import React from 'react'
+// import Form from './components/Form'
+
+// function App() {
+//   return (
+//     <div>
+//       <Form />
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React, { useState } from 'react'
+// import Popup from './components/Popup'
+
+// function App() {
+//   const [showModal, setShowModal] = useState(false)
+//   return (
+//     <div>
+//       <button onClick={()=> setShowModal(true)}>show Modal</button>
+//       {showModal == true ? <Popup onClose={setShowModal}/> : <></>}
+//     </div>
+//   )
+// }
+
+// export default App
+
+
 import React from 'react'
-import Form from './components/Form'
+import CustomDropDown from './components/CustomDropDown'
 
 function App() {
   return (
     <div>
-      <Form />
+      <CustomDropDown options={["G12", "G13", "G14", "G15", "G16"]}/>
+      <CustomDropDown options={["a", "b", "c", "d"]}/>
+
     </div>
   )
 }
 
 export default App
+
+
 
 
 
