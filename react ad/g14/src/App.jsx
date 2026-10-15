@@ -407,21 +407,35 @@
 // export default App
 
 
-import {useState} from 'react'
-import CustomDropDown from './components/CustomDropDown'
+// import {useState} from 'react'
+// import CustomDropDown from './components/CustomDropDown'
+
+// function App() {
+//   const [group, setGroup] = useState("")
+//   return (
+//     <div>
+//       <CustomDropDown options={["G12", "G13", "G14", "G15", "G16"]} onSelect={setGroup}/>
+//     <h2>{group}</h2>
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+import React from 'react'
+import Api from './components/Api'
 
 function App() {
-  const [group, setGroup] = useState("")
   return (
     <div>
-      <CustomDropDown options={["G12", "G13", "G14", "G15", "G16"]} onSelect={setGroup}/>
-    <h2>{group}</h2>
-
+      <Api />
     </div>
   )
 }
 
 export default App
+
 
 
 
